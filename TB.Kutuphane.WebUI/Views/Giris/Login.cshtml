@@ -1,0 +1,109 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/images/favicon.png">
+    <title>Kullanıcı Giriş</title>
+    <link href="~/dist/css/pages/login-register-lock.css" rel="stylesheet">
+    <link href="~/dist/css/style.min.css" rel="stylesheet">
+    <link href="~/Content/sweetAlert/dist/sweetalert2-bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<body class="skin-default card-no-border">
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Yükleniyor...</p>
+        </div>
+    </div>
+    <section id="wrapper">
+        <div class="login-register" style="background-image:url(../../assets/images/background/login-register.jpg);">
+            <div class="login-box card">
+                <div class="card-body">
+                    <form class="form-horizontal form-material" id="loginform" action="#">
+                        <h3 class="text-center m-b-20">Giriş Formu</h3>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" id="userMail" type="email" placeholder="Eposta adresi">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" id="userSifre" type="password" placeholder="Şifre">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <div class="d-flex no-block align-items-center">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheckHatirla">
+                                        <label class="custom-control-label" for="customCheckHatirla">Beni Hatırla</label>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <a href="javascript:void(0)" id="to-recover" class="text-muted"><i class="fas fa-lock m-r-5"></i> Şİfremi Unuttum?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                                <button id="userGirisYap" class="btn btn-block btn-lg btn-info btn-rounded" type="button">Giriş Yap</button>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="form-horizontal" id="recoverform" action="#">
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <h3>Şifre Kurtarma</h3>
+                                <p class="text-muted">Gerekli bilgiler mail adresinize gönderilecektir.</p>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="email" id="userRecoveryMail" placeholder="Email adresi">
+                            </div>
+                        </div>
+                        <div class="form-group text-center m-t-20">
+                            <div class="col-xs-12">
+                                <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Gönder</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="~/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/assets/node_modules/popper/popper.min.js"></script>
+    <script src="~/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/sweetAlert/dist/sweetalert2.min.js"></script>
+
+    @* main - start *@
+    <script src="~/Scripts/giris-script.js"></script>
+    @* main - end *@
+
+    <script type="text/javascript">
+        $(function () {
+            $(".preloader").fadeOut();
+        });
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+        $('#to-recover').on("click", function () {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+    </script>
+</body>
+</html>

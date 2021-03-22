@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/images/favicon.png">
+    <title>Kütüphane Programı || @ViewBag.Title</title>
+    <link href="~/dist/css/style.min.css" rel="stylesheet">
+    <link href="~/Content/sweetAlert/dist/sweetalert2-bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .swal2-cancel {
+            margin-right: 10px;
+        }
+    </style>
+
+</head>
+<body class="wp-menu skin-blue-dark fixed-layout">
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">yükleniyor...</p>
+        </div>
+    </div>
+    <div id="main-wrapper">
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="@Url.Action("Index","Default")">
+                        <b>
+                            <img src="~/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="~/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                        </b>
+                        <span>
+                            <img src="~/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <img src="~/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                        </span>
+                    </a>
+                </div>
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <form class="app-search d-none d-md-block d-lg-block">
+                                <input type="text" class="form-control" placeholder="ara & enter">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav my-lg-0">
+                    <li class="nav-item dropdown u-pro">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class=""> <span class="hidden-md-down">@Request.Cookies["uye"]["Ad"] &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+                        <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                            <!-- text-->
+                            <a href="@Url.Action("PersonelProfil","Giris")" class="dropdown-item">
+                                <i class="ti-user"></i>
+                                Profil
+                            </a>
+                            <!-- text-->
+                            <a href="javascript:void(0)" class="dropdown-item">
+                                <i class="ti-wallet"></i>
+                                My Balance
+                            </a>
+                            <!-- text-->
+                            <a href="javascript:void(0)" class="dropdown-item">
+                                <i class="ti-email"></i>
+                                Inbox
+                            </a>
+                            <!-- text-->
+                            <div class="dropdown-divider"></div>
+                            <!-- text-->
+                            <a href="javascript:void(0)" class="dropdown-item">
+                                <i class="ti-settings"></i>
+                                Account Setting
+                            </a>
+                            <!-- text-->
+                            <div class="dropdown-divider"></div>
+                            <!-- text-->
+                            <a href="@Url.Action("CikisYap","Giris")" class="dropdown-item">
+                                <i class="fa fa-power-off"></i>
+                                Çıkış Yap
+                            </a>
+                            <!-- text-->
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <aside class="left-sidebar">
+            <div class="scroll-sidebar">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="user-pro">
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <img src="~/assets/images/users/1.jpg" alt="user-img" class="img-circle">
+                                <span class="hide-menu">@Request.Cookies["uye"]["Ad"] @Request.Cookies["uye"]["Soyad"] </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="@Url.Action("PersonelProfil","Giris")">
+                                        <i class="ti-user"></i>
+                                        Profil
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="ti-wallet"></i>
+                                        My Balance
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="ti-email"></i>
+                                        Inbox
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="ti-settings"></i>
+                                        Account Setting
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("CikisYap","Giris")">
+                                        <i class="fa fa-power-off"></i>
+                                        Çıkış Yap
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-small-cap">--- MENÜLER</li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-speedometer"></i>
+                                <span class="hide-menu">
+                                    Kategoriler
+                                    @if (ViewBag.KategoriSayisi != null)
+                                    {
+                                        <span class="badge badge-pill badge-cyan ml-auto">
+                                            @ViewBag.KategoriSayisi.ToString()
+                                        </span>
+                                    }
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="@Url.Action("Index","Kategori")">Listele</a></li>
+                                <li><a href="#" id="kategoriEkle">Ekle</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-speedometer"></i>
+                                <span class="hide-menu">
+                                    Yazarlar
+                                    @if (ViewBag.YazarSayisi != null)
+                                    {
+                                        <span class="badge badge-pill badge-cyan ml-auto">
+                                            @ViewBag.YazarSayisi.ToString()
+                                        </span>
+                                    }
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="@Url.Action("Index","Yazar")">Listele</a></li>
+                                <li><a href="#" id="yazarEkle">Ekle</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-speedometer"></i>
+                                <span class="hide-menu">
+                                    Kitaplar
+                                    @if (ViewBag.KitapSayisi != null)
+                                    {
+                                        <span class="badge badge-pill badge-cyan ml-auto">
+                                            @ViewBag.KitapSayisi.ToString()
+                                        </span>
+                                    }
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="@Url.Action("Index","Kitap")">Listele</a></li>
+                                <li><a href="@Url.Action("Ekle","Kitap")" id="kitapEkle">Ekle</a></li>
+                                <li><a href="@Url.Action("VerilenKitap","OduncKitap")">Ödünç Alınan Kitaplar</a></li>
+                                <li><a href="@Url.Action("TeslipEdilenKitap","OduncKitap")">Teslim Edilen Kitap</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-speedometer"></i>
+                                <span class="hide-menu">
+                                    Üyeler
+                                    @if (ViewBag.UyeSayisi != null)
+                                    {
+                                        <span class="badge badge-pill badge-cyan ml-auto">
+                                            @ViewBag.UyeSayisi.ToString()
+                                        </span>
+                                    }
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="@Url.Action("Index","Uye")">Listele</a></li>
+                                <li><a href="@Url.Action("Ekle","Uye")" id="uyeEkle">Ekle</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-speedometer"></i>
+                                <span class="hide-menu">
+                                    Üyelik İşlemleri
+                                    @if (ViewBag.UyelikSayisi != null)
+                                    {
+                                        <span class="badge badge-pill badge-cyan ml-auto">
+                                            @ViewBag.UyelikSayisi.ToString()
+                                        </span>
+                                    }
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="@Url.Action("Index","Uyelik")">Üyelik Listesi</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="page-wrapper">
+            @RenderBody()
+        </div>
+        <footer class="footer">
+            © @DateTime.Now.Year by.t1nju
+        </footer>
+    </div>
+    <script src="~/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/assets/node_modules/popper/popper.min.js"></script>
+    <script src="~/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/dist/js/waves.js"></script>
+    <script src="~/dist/js/sidebarmenu.js"></script>
+    <script src="~/assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="~/assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/dist/js/custom.min.js"></script>
+    <script src="~/Content/sweetAlert/dist/sweetalert2.min.js"></script>
+
+    @* main - start *@
+    <script src="~/Scripts/kategori-script.js"></script>
+    <script src="~/Scripts/yazar-script.js"></script>
+    <script src="~/Scripts/kitap-script.js"></script>
+    <script src="~/Scripts/uye-script.js"></script>
+    <script src="~/Scripts/oduncKitap-script.js"></script>
+    <script src="~/Scripts/uye-yetki-script.js"></script>
+    <script src="~/Scripts/giris-script.js"></script>
+    @* main - end *@
+
+</body>
+</html>

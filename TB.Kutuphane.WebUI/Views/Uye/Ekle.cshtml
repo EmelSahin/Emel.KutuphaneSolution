@@ -1,0 +1,84 @@
+﻿@using TB.Kutuphane.Entity
+@model Uye
+
+@{
+    ViewBag.Title = "Üye Ekle";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Üye Ekle</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Uye")">
+                            Üye Listesi
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Üye Ekle
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Üye Ekle</h4>
+                    <form class="mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Adı *</label>
+                                    <input type="text" class="form-control" id="uyeAd" placeholder="Üyenin adı" min="2" max="50" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Soyadı *</label>
+                                    <input type="text" class="form-control" id="uyeSoyad" placeholder="Üyenin soyadı" min="2" max="50" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tc Kimlik No</label>
+                                    <input type="number" class="form-control" id="uyeTC" placeholder="Üyenin Tc kimlik numarası" min="11" max="11">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Telefon</label>
+                                    <input type="number" class="form-control" id="uyeTelefon" placeholder="Üyenin telefonu" min="11" max="11">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mail Adresi</label>
+                                    <input type="email" class="form-control" id="uyeMail" placeholder="Üyenin mail adresi" max="50">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                        <input type="button" id="uyeKaydet" class="btn btn-success" value="Kaydet">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "Content/sweetAlert/dist/sweetalert2-bootstrap.min.css",
+    "inputFiles": [
+      "Content/sweetAlert/dist/sweetalert2-bootstrap.css"
+    ]
+  }
+]

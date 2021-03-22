@@ -1,0 +1,15 @@
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\TB.Kutuphane.Data.dll.config
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\TB.Kutuphane.Data.dll
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\TB.Kutuphane.Data.pdb
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\EntityFramework.dll
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\TB.Kutuphane.Entity.dll
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\TB.Kutuphane.Entity.pdb
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\TB.Kutuphane.Entity.dll.config
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\EntityFramework.xml
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\obj\Debug\TB.Kutuphane.Data.csprojAssemblyReference.cache
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\obj\Debug\TB.Kutuphane.Data.csproj.CoreCompileInputs.cache
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\obj\Debug\TB.Kutuphane.Data.csproj.CopyComplete
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\obj\Debug\TB.Kutuphane.Data.dll
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Data\obj\Debug\TB.Kutuphane.Data.pdb

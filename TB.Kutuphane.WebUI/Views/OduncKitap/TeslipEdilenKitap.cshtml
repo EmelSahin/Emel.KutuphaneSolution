@@ -1,0 +1,74 @@
+﻿@using TB.Kutuphane.Entity
+@model List<OduncKitap>
+
+@{
+    ViewBag.Title = "Teslim Edilen Kitap Listesi";
+    DateTime getirdigiTarih;
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Teslim Edilen Kitap Listesi</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Teslim Edilen Kitap Listesi
+                    </li>
+                </ol>
+                @*<a href="@Url.Action("KitapVer","OduncKitap")" class="btn btn-info d-none d-lg-block m-l-15">
+                    <i class="fa fa-book"></i>
+                    Ödünç Kitap Ver
+                </a>*@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table id="example" class="display table table-striped table-bordered table-hover table-responsive-md" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Kitap Adı</th>
+                                <th>Kitabı Alan Üye</th>
+                                <th>Aldığı Tarih</th>
+                                <th>Getireceği Tarih</th>
+                                <th>Getirdiği Tarih</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                getirdigiTarih = Convert.ToDateTime(item.GetirdigiTarih);
+                                <tr>
+                                    <td>@item.Kitaplar.Ad</td>
+                                    <td>@item.Uyeler.Ad @item.Uyeler.Soyad</td>
+                                    <td>@item.AlisTarih.ToString("dddd, dd MMMM yyyy")</td>
+                                    <td>@item.GetirecegiTarih.ToString("dddd, dd MMMM yyyy")</td>
+                                    <td>@getirdigiTarih.ToString("dddd, dd MMMM yyyy")</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Kitap Adı</th>
+                                <th>Kitabı Alan Üye</th>
+                                <th>Aldığı Tarih</th>
+                                <th>Getireceği Tarih</th>
+                                <th>Getirdiği Tarih</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\bin\Debug\TB.Kutuphane.Common.dll
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\bin\Debug\TB.Kutuphane.Common.pdb
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\bin\Debug\TB.Kutuphane.Entity.dll
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\bin\Debug\EntityFramework.dll
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\bin\Debug\TB.Kutuphane.Entity.pdb
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\bin\Debug\TB.Kutuphane.Entity.dll.config
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\bin\Debug\EntityFramework.xml
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\obj\Debug\TB.Kutuphane.Common.csprojAssemblyReference.cache
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\obj\Debug\TB.Kutuphane.Common.csproj.CoreCompileInputs.cache
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\obj\Debug\TB.Kutuphane.Common.csproj.CopyComplete
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\obj\Debug\TB.Kutuphane.Common.dll
+C:\Users\Emel Şahin\Documents\GitHub\TB.KutuphaneSolution-master\TB.Kutuphane.Common\obj\Debug\TB.Kutuphane.Common.pdb

@@ -1,0 +1,95 @@
+﻿@using TB.Kutuphane.Entity
+@model List<Uye>
+
+@{
+    ViewBag.Title = "Üye Yetkileri Listesi";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Üye Yetkileri Listesi</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Üye Yetkileri Listesi
+                    </li>
+                </ol>
+                <a href="@Url.Action("Ekle","Uyelik")" class="btn btn-info d-none d-lg-block m-l-15">
+                    <i class="fa fa-plus-circle"></i>
+                    Üye Yetki Ekle
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table id="example" class="display table table-striped table-bordered table-hover table-responsive-md" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th style="width:34%">Ad Soyad</th>
+                                <th style="width:30%">Mail</th>
+                                <th style="width:12%">Yetki</th>
+                                <th style="width:12%">Güncelle</th>
+                                <th style="width:12%">Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Ad @item.Soyad</td>
+                                    <td>@item.Mail</td>
+                                    <td>
+                                        @if (item.Yetki == "1")
+                                        {
+                                            <span id="yetkiAta" data-id="@item.Id" class="label label-primary">Admin</span>
+                                        }
+                                        else if (item.Yetki == "2")
+                                        {
+                                            <span id="yetkiAta" data-id="@item.Id" class="label label-info">Moderatör</span>
+                                        }
+                                        else
+                                        {
+                                            <span id="yetkiAta" data-id="@item.Id" class="label label-warning">İzleyici</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Guncelle","Uyelik", new { id=item.Id})" class="btn waves-effect waves-light btn-warning btn-sm text-dark">
+                                            <i class="fa fa-edit"></i>
+                                            Güncelle
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button class="uyeYetkiSil btn waves-effect waves-light btn-danger btn-sm" value="@item.Id">
+                                            <i class="fa fa-trash"></i>
+                                            Sil
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th style="width:34%">Ad Soyad</th>
+                                <th style="width:30%">Mail</th>
+                                <th style="width:12%">Yetki</th>
+                                <th style="width:12%">Güncelle</th>
+                                <th style="width:12%">Sil</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

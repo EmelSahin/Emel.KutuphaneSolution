@@ -1,0 +1,96 @@
+﻿@using TB.Kutuphane.Entity
+@model List<Kitap>
+
+@{
+    ViewBag.Title = "Kitap Listesi";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Kitap Listesi</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Kitap Listesi
+                    </li>
+                </ol>
+                <a href="@Url.Action("Ekle","Kitap")" class="btn btn-info d-none d-lg-block m-l-15">
+                    <i class="fa fa-plus-circle"></i>
+                    Kitap Ekle
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table id="example" class="display table table-striped table-bordered table-hover table-responsive-md" style="width:100%">
+                        <thead>
+                            <tr class="bg-dark text-white">
+                                <th style="width:12%">Kategori</th>
+                                <th style="width:12%">Sıra No</th>
+                                <th style="width:28%">Kitap Adı</th>
+                                <th style="width:12%">Adet</th>
+                                <th style="width:12%">Yazar</th>
+                                <th style="width:12%">Güncelle</th>
+                                <th style="width:12%">Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var kategoriler = "";
+                                <tr>
+                                    <td>
+                                        @foreach (var itemKategori in item.Kategoriler)
+                                        {
+                                            kategoriler += itemKategori.KategoriAdi + ",";
+                                        }
+                                        @kategoriler
+                                    </td>
+                                    <td>@item.SiraNo</td>
+                                    <td>@item.Ad</td>
+                                    <td>@item.Adet</td>
+                                    <td>@(item.Yazarlar.Ad + " " + item.Yazarlar.Soyad)</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Guncelle","Kitap",new{ kitapId=item.Id })" class="btn waves-effect waves-light btn-warning btn-sm text-dark">
+                                            <i class="fa fa-edit"></i>
+                                            Güncelle
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button class="kitapSil btn waves-effect waves-light btn-danger btn-sm" value="@item.Id">
+                                            <i class="fa fa-trash"></i>
+                                            Sil
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-dark text-white">
+                                <th style="width:12%">Kategori</th>
+                                <th style="width:12%">Sıra No</th>
+                                <th style="width:28%">Kitap Adı</th>
+                                <th style="width:12%">Adet</th>
+                                <th style="width:12%">Yazar</th>
+                                <th style="width:12%">Güncelle</th>
+                                <th style="width:12%">Sil</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

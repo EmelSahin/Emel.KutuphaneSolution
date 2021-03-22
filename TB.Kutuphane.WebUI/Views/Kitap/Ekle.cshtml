@@ -1,0 +1,99 @@
+﻿@using TB.Kutuphane.Entity
+@model Kitap
+
+@{
+    ViewBag.Title = "Kitap Ekle";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Kitap Ekle</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Kitap")">
+                            Kitap Listesi
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Kitap Ekle
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Kitap Ekle</h4>
+                    <form class="mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Kitap Adı</label>
+                                    <input type="text" class="form-control" id="kkitapAdi" placeholder="Kitap Adı">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Yazarlar</label>
+                                    <select id="yazarlar" class="form-control custom-select">
+                                        @foreach (var item in ViewBag.YazarList)
+                                        {
+                                            <option data-id="@item.Id">@(item.Ad + " " + item.Soyad)</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Kitap Adeti</label>
+                                    <input type="number" class="form-control" id="kkitapAdet" placeholder="Kitap Adeti">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Sıra Numarası</label>
+                                    <input type="number" class="form-control" id="ksiraNo" placeholder="Sıra No">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Kategoriler</label>
+                                    <select id="kategoriler" class="form-control custom-select">
+                                        @foreach (var item in ViewBag.KategoriList)
+                                        {
+                                            <option data-id="@item.Id">@item.KategoriAdi</option>
+                                        }
+                                    </select>
+                                    <div id="eklenenKategoriler" class="form-group" style="margin-top:10px;"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <input type="button" id="kitapKategoriEkle" class="btn btn-primary btn-block" value="Ekle" style="margin-top:30px;" />
+                                </div>
+                            </div>
+                        </div>
+                        <input type="button" id="kkitapKaydet" class="btn btn-success" value="Kaydet">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

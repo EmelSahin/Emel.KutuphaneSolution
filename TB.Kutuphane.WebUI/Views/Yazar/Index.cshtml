@@ -1,0 +1,72 @@
+﻿@using TB.Kutuphane.Entity
+@model List<Yazar>
+
+@{
+    ViewBag.Title = "Kategori Listesi";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Yazar Listesi</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Yazar Listesi
+                    </li>
+                </ol>
+                <button type="button" class="btn btn-info d-none d-lg-block m-l-15" id="yazarEkle">
+                    <i class="fa fa-plus-circle"></i>
+                    Yazar Ekle
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table id="example" class="display table table-striped table-bordered table-hover table-info table-responsive-md" style="width:100%">
+                        <thead>
+                            <tr class="bg-info text-white">
+                                <th style="width:33%">Yazar Adı</th>
+                                <th style="width:33%">Yazar SoyadI</th>
+                                <th style="width:10%">Kitap Adeti</th>
+                                <th style="width:12%">Güncelle</th>
+                                <th style="width:12%">Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Ad</td>
+                                    <td>@item.Soyad</td>
+                                    <td>@item.Kitaplar.Count</td>
+                                    <td><button class="yazarGuncelle btn waves-effect waves-light btn-warning btn-sm text-dark" value="@item.Id"><i class="fa fa-edit"></i> Güncelle</button></td>
+                                    <td><button class="yazarSil btn waves-effect waves-light btn-danger btn-sm" value="@item.Id"><i class="fa fa-trash"></i> Sil</button></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-info text-white">
+                                <th>Yazar Adı</th>
+                                <th>Yazar SoyadI</th>
+                                <th>Kitap Adeti</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+﻿@using TB.Kutuphane.Entity
+@model Uye
+
+@{
+    ViewBag.Title = "Üye Yetki Güncelle";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Üye Yetki Güncelle</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Uyelik")">
+                            Üye Yetki Listesi
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Üye Yetki Güncelle
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Üye Yetki Güncelle</h4>
+                    <form class="mt-4">
+                        <div class="row">
+                            <input type="hidden" value="@Model.Id" id="uyeYetkiId" />
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ad Soyad</label>
+                                    <input type="text" value="@Model.Ad @Model.Soyad" class="form-control" id="uyeYetkiAdSoyad" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mail Adresi *</label>
+                                    <input type="email" value="@Model.Mail" class="form-control" id="uyeYetkiMail" placeholder="Üyenin mail adresi" max="50" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Parola *</label>
+                                    <input type="password" class="form-control" id="uyeYetkiParola" placeholder="Üye parolası" min="1" max="8" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Parola(tekrar) *</label>
+                                    <input type="password" class="form-control" id="uyeYetkiParolaTekrar" placeholder="Üye parola tekrar" min="1" max="8" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" id="uyeYetkiGuncelle">Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

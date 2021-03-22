@@ -1,0 +1,86 @@
+﻿@using TB.Kutuphane.Entity
+@model List<OduncKitap>
+
+@{
+    ViewBag.Title = "Ödünç Kitap Listesi";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Ödünç Kitap Listesi</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Ödünç Kitap Listesi
+                    </li>
+                </ol>
+                <a href="@Url.Action("KitapVer","OduncKitap")" class="btn btn-info d-none d-lg-block m-l-15">
+                    <i class="fa fa-book"></i>
+                    Ödünç Kitap Ver
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table id="example" class="display table table-striped table-bordered table-hover table-responsive-md" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Kitap Adı</th>
+                                <th>Kitabı Alan Üye</th>
+                                <th>Aldığı Tarih</th>
+                                <th>Getireceği Tarih</th>
+                                <th>Güncelle</th>
+                                <th>Getirdi Olarak İşaretle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>@item.Kitaplar.Ad</td>
+                                    <td>@item.Uyeler.Ad @item.Uyeler.Soyad</td>
+                                    <td>@item.AlisTarih.ToString("dddd, dd MMMM yyyy")</td>
+                                    <td>@item.GetirecegiTarih.ToString("dddd, dd MMMM yyyy")</td>
+                                    <td>
+                                        <a href="@Url.Action("VerilenKitapGuncelle","OduncKitap",new { id=item.Id})" class="btn waves-effect waves-light btn-warning btn-sm text-dark">
+                                            <i class="fa fa-edit"></i>
+                                            Güncelle
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button class="getirdiOlarakIsaretle btn waves-effect waves-light btn-info btn-sm" value="@item.Id">
+                                            <i class="fa fa-clock"></i>
+                                            Getirdi Olarak İşaretle
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Kitap Adı</th>
+                                <th>Kitabı Alan Üye</th>
+                                <th>Aldığı Tarih</th>
+                                <th>Getireceği Tarih</th>
+                                <th>Güncelle</th>
+                                <th>Getirdi Olarak İşaretle</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
